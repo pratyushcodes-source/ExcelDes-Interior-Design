@@ -1,13 +1,13 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
 import { GoogleGenAI, Chat } from '@google/genai';
 
-if (!process.env.VITE_API_KEY) {
-    throw new Error("VITE_API_KEY environment variable not set");
+// Vite-compatible way to access environment variable
+const apiKey = import.meta.env.VITE_API_KEY;
+
+if (!apiKey) {
+  throw new Error('VITE_API_KEY environment variable not set');
 }
 
-const ai = new GoogleGenAI({ apiKey: process.env.VITE_API_KEY });
+const ai = new GoogleGenAI({ apiKey });
 
 function fileToGenerativePart(file: File) {
   return new Promise<{ inlineData: { data: string; mimeType: string } }>((resolve, reject) => {
@@ -21,12 +21,12 @@ function fileToGenerativePart(file: File) {
       const data = parts[1];
       resolve({
         inlineData: {
-          mimeType,
           data,
+          mimeType,
         },
       });
     };
-    reader.onerror = (error) => reject(error);
+    reader.onerror = reject;
     reader.readAsDataURL(file);
   });
 }
@@ -37,7 +37,6 @@ export async function generateDesignIdeas(
   style: string
 ): Promise<{ description: string; imageUrl: string }> {
   try {
-    // Convert file to generative part for Gemini input
     const imagePart = await fileToGenerativePart(imageFile);
     const textPart = {
       text: `Analyze the attached image of a ${roomType}. Based on this room's layout (including windows, doors, and structural elements), generate a detailed, descriptive prompt for an image generation AI. The goal is to create a photorealistic image of the same ${roomType} redesigned in a "${style}" style. The prompt should vividly describe new furniture, a cohesive color palette, appropriate lighting, textures, and decor elements appropriate for a ${roomType}. The prompt must be creative, detailed, and focus on creating an aspirational yet achievable design. Output ONLY the generated prompt, with no extra text, labels or introduction.`,
@@ -84,7 +83,6 @@ export function createChatSession(): Chat {
     config: {
       systemInstruction: `You are Decora, a friendly and knowledgeable AI interior design assistant from Exceldes. Your tone is warm, professional, creative, and encouraging. Your primary goal is to provide helpful, inspiring, and practical advice on interior design.
 
-When a user asks about the price of items in a design or where to buy them, you have new capabilities:
 1. **Pricing:** Provide estimated prices in Indian Rupees (INR). Always explicitly state that these are *estimates* and actual prices can vary based on brand, material, and retailer. For example, say "A sofa like that could range from ₹30,000 to ₹70,000..."
 2. **Sourcing (India-Centric):** Provide suggestions for where users can find similar items. Your recommendations should be tailored to India and, if possible, specific major cities like Delhi, Mumbai, and Bangalore.
    - **Online Stores:** Mention popular Indian online furniture stores like Pepperfry, Urban Ladder, WoodenStreet, Amazon India, and Flipkart.
@@ -97,5 +95,7 @@ When a user asks about the price of items in a design or where to buy them, you 
 Do not mention you are a language model. Focus on being a helpful design assistant for an Indian audience.`,
     },
   });
+
   return chat;
 }
+
