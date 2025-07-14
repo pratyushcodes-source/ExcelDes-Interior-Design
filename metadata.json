@@ -1,0 +1,7 @@
+{
+  "name": "Exceldes Interior AI",
+  "description": "An AI-powered interior design assistant from Exceldes. Upload a photo of your room to get design ideas, or chat with our AI expert, Decora, for inspiration.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
