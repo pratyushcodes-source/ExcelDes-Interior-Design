@@ -110,33 +110,20 @@ PINECONE_ENVIRONMENT=your_pinecone_env
 PINECONE_INDEX_NAME=your_index_name
 CLERK_SECRET_KEY=your_clerk_backend_key
 
-💻 Local Setup
-1. Clone the Repository
-
+# 1. Clone the repository
 git clone https://github.com/your-username/exceldes.git
 cd exceldes
-2. Install Dependencies
-Frontend:
 
-
+# 2. Setup and run the frontend
 cd client
 npm install
-Backend:
+npm run dev
 
-
-cd server
+# 3. Setup and run the backend
+cd ../server
 npm install
-3. Run the Application
-Start backend:
-
-
-cd server
 npm run dev
-Start frontend:
 
-
-cd client
-npm run dev
 
 📈 Future Enhancements
 🖼️ Drag-and-drop room layout planner
