@@ -113,7 +113,7 @@ PINECONE_API_KEY=your_pinecone_key
 PINECONE_ENVIRONMENT=your_pinecone_env
 PINECONE_INDEX_NAME=your_index_name
 CLERK_SECRET_KEY=your_clerk_backend_key
-
+---
 # 1. Clone the repository
 git clone https://github.com/your-username/exceldes.git
 cd exceldes
