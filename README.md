@@ -76,20 +76,24 @@ Exceldes is a full-stack AI web application that empowers users to reimagine the
 
 ---
 
-## 🗂️ Folder Structure
 exceldes/
-├── client/ # React frontend
-│ ├── src/
-│ │ ├── components/
-│ │ ├── pages/
-│ │ └── hooks/
-├── server/ # Node.js backend
-│ ├── routes/
-│ ├── controllers/
-│ ├── utils/
-│ └── models/
-├── .env
-├── README.md
+├── client/                  # React frontend
+│   ├── public/              # Static assets
+│   └── src/                 
+│       ├── components/      # Reusable UI components
+│       ├── pages/           # Main pages like Home, Dashboard
+│       ├── hooks/           # Custom React hooks
+│       └── utils/           # Frontend utility functions
+│
+├── server/                  # Node.js backend
+│   ├── routes/              # API route definitions
+│   ├── controllers/         # Business logic for routes
+│   ├── models/              # Mongoose schemas and models
+│   └── utils/               # Backend helper functions
+│
+├── .env                     # Environment variables (global or root-level)
+├── README.md                # Project documentation
+
 
 
 ---
