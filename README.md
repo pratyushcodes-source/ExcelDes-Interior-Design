@@ -1,90 +1,168 @@
+# 🛋️ Exceldes – AI-Powered Interior Design Assistant
 
-# Exceldes Interior AI ✨
+> Turn any room into a personalized masterpiece using artificial intelligence.
 
-Transform your living space in seconds. An AI-powered interior design assistant that brings your dream room to life using the power of Google's Gemini and Imagen models.
-
-**[➡️ View Live Demo](https://your-live-demo-link-here.com)**
-
----
-
-
-*(Image: A GIF demonstrating the user flow from uploading a room photo to receiving a redesigned image and chatting with the AI assistant.)*
-
-## 🌟 Core Features
-
--   **🤖 AI-Powered Room Redesign**: Upload a photo of your room, and our AI will generate a photorealistic, redesigned version based on your chosen style.
--   **🎨 Category & Style Driven**: Start by selecting your room type (Bedroom, Living Room, etc.) and a desired aesthetic (e.g., Modern Minimalist, Bohemian) to get tailored results.
--   **🖼️ Interactive Before & After**: Instantly compare your original room with the AI-generated design in a clean, side-by-side view.
--   **💬 "Decora" AI Chatbot**: Have a question? Our friendly chatbot, Decora, is available to answer your interior design questions, from color theory to furniture placement.
--   **🇮🇳 India-Centric Sourcing**: Decora provides estimated pricing in Indian Rupees (₹) and suggests popular online and physical stores in **Delhi, Mumbai, and Bangalore** to find similar items.
--   **📱 Responsive Dark-Themed UI**: A sleek, sophisticated, and modern dark-themed interface built with React and Tailwind CSS, fully responsive for all devices.
-
-## 🛠️ Tech Stack & Architecture
-
-This project uses a modern web stack to deliver a seamless and powerful user experience.
-
--   **Frontend**:
-    -   **React 19** & **TypeScript**: For building a robust and type-safe user interface.
-    -   **Tailwind CSS**: For a utility-first, modern, and responsive design system.
--   **AI & Backend Logic**:
-    -   **Google Gemini API (`@google/genai`)**: The core engine for all AI functionalities.
-        -   `gemini-2.5-flash`: Used for high-speed text generation, chat conversations, and analyzing user images to create descriptive prompts.
-        -   `imagen-3.0-generate-002`: Used for generating high-quality, photorealistic interior design images.
--   **Runtime**:
-    -   The application is served as a static site and uses **ESM via an import map** for module resolution directly in the browser.
-
-### How the AI Design Generation Works
-
-The magic happens in a two-step AI pipeline:
-
-1.  **Analysis & Prompt Generation**: When a user uploads an image, selects a room type, and chooses a style, the data is sent to `gemini-2.5-flash`. The model analyzes the room's layout, structure, and lighting to generate a highly detailed and creative prompt for an image generation AI.
-2.  **Image Generation**: The descriptive prompt from Step 1 is then fed into `imagen-3.0-generate-002`. This model uses the prompt to generate a completely new, photorealistic image of the redesigned room, maintaining the original room's core structure.
-
-## 🚀 Getting Started
-
-To run this project locally, follow these steps:
-
-### Prerequisites
-
--   A modern web browser with support for ES Modules.
--   A **Google Gemini API Key**. You can get one from [Google AI Studio](https://aistudio.google.com/app/apikey).
-
-### Installation & Setup
-
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/your-username/exceldes-interior-ai.git
-    cd exceldes-interior-ai
-    ```
-
-2.  **Set up your API Key:**
-    The application is configured to use an API key from environment variables. For local development, you need a way to serve this key. A simple local server can be configured to handle this.
-
-    **Important Security Note**: The `process.env.API_KEY` approach is intended for a server-side or build-time environment. **Never expose your API key directly in client-side JavaScript in a production application.** For a real-world app, you would use a backend proxy to make API calls securely.
-
-3.  **Launch the application:**
-    Since this project is built with plain HTML/JS/CSS and uses ESM, you can run it with any simple local web server. The easiest way is using a tool like `serve`:
-
-    ```bash
-    # Install serve globally if you don't have it
-    npm install -g serve
-
-    # Run the server from the project's root directory
-    serve
-    ```
-    Now, open your browser and navigate to the URL provided by the server (e.g., `http://localhost:3000`).
-
-## 🔮 Future Improvements
-
--   [ ] **User Accounts**: Allow users to sign up and save their generated designs.
--   [ ] **Fine-Grained Control**: Enable users to give more specific feedback, such as "change the sofa color to blue."
--   [ ] **Real-time Product APIs**: Integrate with e-commerce APIs to show live pricing and stock from retailers.
--   [ ] **Expanded City Support**: Add sourcing suggestions for more Indian cities like Chennai, Hyderabad, and Pune.
-
-## 🧑‍💻 Credits
-
-This application was conceptualized and developed by **Pratyush Kumar**.
+Exceldes is a full-stack AI web application that empowers users to reimagine their room interiors with minimal effort. By simply uploading a room image and selecting a desired design style, users receive intelligent, visually rich design suggestions powered by GPT-4 Vision and DALL·E. The tool enhances creativity, saves time, and simplifies the interior design decision process for users, designers, and real estate enthusiasts alike.
 
 ---
 
-&copy; 2024 Exceldes. All rights reserved.
+## 🎯 Project Objectives
+
+- 🧠 Leverage cutting-edge AI (GPT-4 Vision + DALL·E) to generate interior design ideas from room images.
+- 🎨 Provide personalized design suggestions based on user-selected styles.
+- 🔍 Enable semantic similarity search through embeddings and vector search (OpenAI + Pinecone).
+- 🧾 Store user design history and metadata for future access and recommendations.
+- 🔐 Secure user access through scalable, production-grade authentication (Clerk).
+- 🌐 Deliver a sleek, responsive experience with a modern frontend and API-first architecture.
+
+---
+
+## 🚀 Live Demo
+
+[🔗 Live Demo Coming Soon](https://your-deployment-url.com)
+
+---
+
+## 🧠 Key Features
+
+| Feature                     | Description                                                                 |
+|-----------------------------|-----------------------------------------------------------------------------|
+| 📸 Image Upload             | Upload real room images from mobile or desktop                              |
+| 🎨 Style Selection          | Choose from styles like Minimalist, Modern, Scandinavian, etc.              |
+| 🧠 AI Vision & Generation   | GPT-4 Vision + DALL·E generates detailed and realistic interior design ideas |
+| ✍️ Design Description       | Natural language summary of design choices (lighting, color, furniture)     |
+| 🔐 Auth with Clerk          | User authentication via email, Google, GitHub with secure session handling  |
+| 🧾 Design History            | Stores and displays previously generated designs per user                   |
+| 🔍 Vector Search (Pinecone) | Search for similar designs based on style and semantics                     |
+| ☁️ Full-Stack Architecture  | Seamless integration between frontend, backend, AI services, and DB         |
+
+---
+
+## 🧱 Tech Stack
+
+### 🖥️ Frontend
+- **React** – Component-driven architecture for dynamic UI
+- **Tailwind CSS** – Utility-first styling for modern, responsive layout
+- **Clerk** – Plug-and-play auth for login, session, user identity
+- **Fetch API** – Lightweight, modern request handling
+
+### 🧠 AI Integration
+- **OpenAI GPT-4 Vision** – Understands and analyzes uploaded room images
+- **DALL·E (Optional)** – Generates photorealistic design variations (if used)
+- **OpenAI Embeddings** – Converts design text into semantic vectors for search
+
+### 🧪 Backend
+- **Node.js + Express** – RESTful API to manage image processing, AI generation, DB interaction
+- **Multer** – Handles multipart image uploads from frontend
+- **Dotenv** – Secure .env variable handling for all API keys and secrets
+
+### 🧰 Databases
+- **MongoDB (via Mongoose)** – Stores user data, design history, room metadata
+- **Pinecone** – High-performance vector database for storing and retrieving embedded design data
+
+---
+
+## 🖼️ Example Workflow
+
+1. **User uploads** an image of their room and selects a desired design style.
+2. The **image is sent to the backend** where it's processed and analyzed by **GPT-4 Vision**.
+3. The AI generates a **textual description** of the new design based on the selected style.
+4. The description is:
+   - **Returned to the frontend**
+   - **Embedded** using OpenAI Embeddings
+   - **Stored** in Pinecone for similarity search
+   - **Logged** in MongoDB with metadata and user association
+5. The frontend displays the design output (text + image) and stores it under the user’s history.
+
+---
+
+## 🗂️ Folder Structure
+exceldes/
+├── client/ # React frontend
+│ ├── src/
+│ │ ├── components/
+│ │ ├── pages/
+│ │ └── hooks/
+├── server/ # Node.js backend
+│ ├── routes/
+│ ├── controllers/
+│ ├── utils/
+│ └── models/
+├── .env
+├── README.md
+
+
+---
+
+## 🔐 Environment Variables
+
+**Frontend (`client/.env`)**
+```env
+VITE_CLERK_PUBLISHABLE_KEY=your_clerk_frontend_key
+VITE_BACKEND_URL=http://localhost:5000
+Backend (server/.env)
+
+
+OPENAI_API_KEY=your_openai_key
+MONGODB_URI=your_mongodb_connection
+PINECONE_API_KEY=your_pinecone_key
+PINECONE_ENVIRONMENT=your_pinecone_env
+PINECONE_INDEX_NAME=your_index_name
+CLERK_SECRET_KEY=your_clerk_backend_key
+
+💻 Local Setup
+1. Clone the Repository
+
+git clone https://github.com/your-username/exceldes.git
+cd exceldes
+2. Install Dependencies
+Frontend:
+
+
+cd client
+npm install
+Backend:
+
+
+cd server
+npm install
+3. Run the Application
+Start backend:
+
+
+cd server
+npm run dev
+Start frontend:
+
+
+cd client
+npm run dev
+
+📈 Future Enhancements
+🖼️ Drag-and-drop room layout planner
+
+🧾 Export AI design suggestions as PDF
+
+🎯 Add multi-room support (living, kitchen, etc.)
+
+🛒 Integration with furniture e-commerce APIs
+
+📊 Admin dashboard for design trend analytics
+
+📄 License
+This project is licensed under the MIT License.
+Feel free to build on top of Exceldes or adapt it for your own creative tools.
+
+🙌 Acknowledgements
+OpenAI
+
+Clerk
+
+Pinecone
+
+MongoDB Atlas
+
+Tailwind CSS
+
+
+
