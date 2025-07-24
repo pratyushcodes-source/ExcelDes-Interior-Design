@@ -97,7 +97,7 @@ exceldes/
 ## 🔐 Environment Variables
 
 **Frontend (`client/.env`)**
-```env
+
 VITE_CLERK_PUBLISHABLE_KEY=your_clerk_frontend_key
 VITE_BACKEND_URL=http://localhost:5000
 Backend (server/.env)
