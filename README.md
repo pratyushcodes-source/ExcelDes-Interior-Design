@@ -1,159 +1,119 @@
-# 🛋️ Exceldes – AI-Powered Interior Design Assistant
+Exceldes Interior AI Tool 🏡✨
 
-> Turn any room into a personalized masterpiece using artificial intelligence.
+An AI-powered interior design platform that transforms real room photos into personalized design makeovers. Built with a full-stack architecture, this tool leverages computer vision, generative AI, and vector-based recommendation systems to provide users with practical and visually appealing interior design suggestions.
 
-Exceldes is a full-stack AI web application that empowers users to reimagine their room interiors with minimal effort. By simply uploading a room image and selecting a desired design style, users receive intelligent, visually rich design suggestions powered by GPT-4 Vision and DALL·E. The tool enhances creativity, saves time, and simplifies the interior design decision process for users, designers, and real estate enthusiasts alike.
+🚀 Project Overview
 
----
+This project was developed to enhance user experience in interior design by providing instant, AI-driven recommendations based on uploaded room images. Key capabilities include:
 
-## 🎯 Project Objectives
+Room Analysis: Identifies room type, layout, and style preferences from uploaded images.
 
-- 🧠 Leverage cutting-edge AI (GPT-4 Vision + DALL·E) to generate interior design ideas from room images.
-- 🎨 Provide personalized design suggestions based on user-selected styles.
-- 🔍 Enable semantic similarity search through embeddings and vector search (OpenAI + Pinecone).
-- 🧾 Store user design history and metadata for future access and recommendations.
-- 🔐 Secure user access through scalable, production-grade authentication (Clerk).
-- 🌐 Deliver a sleek, responsive experience with a modern frontend and API-first architecture.
+AI-Generated Makeovers: Uses GPT-4 Vision and AI models to suggest furniture placement, decor styles, and color schemes.
 
----
+Recommendation Engine: Vector-based retrieval system powered by OpenAI embeddings and Pinecone to suggest design ideas aligned with user intent.
 
-## 🚀 Live Demo
+Interactive Chatbot: Offers contextual tips, pricing in INR, and sourcing suggestions specific to the Indian market.
 
-[🔗 Live Demo Coming Soon](https://your-deployment-url.com)
+Seamless Experience: Side-by-side comparisons of original vs. AI-generated design for intuitive exploration.
 
----
+✨ Features
 
-## 🧠 Key Features
+AI-Powered Design: Transform room images into makeover suggestions using GPT-4 Vision.
 
-| Feature                     | Description                                                                 |
-|-----------------------------|-----------------------------------------------------------------------------|
-| 📸 Image Upload             | Upload real room images from mobile or desktop                              |
-| 🎨 Style Selection          | Choose from styles like Minimalist, Modern, Scandinavian, etc.              |
-| 🧠 AI Vision & Generation   | GPT-4 Vision + DALL·E generates detailed and realistic interior design ideas |
-| ✍️ Design Description       | Natural language summary of design choices (lighting, color, furniture)     |
-| 🔐 Auth with Clerk          | User authentication via email, Google, GitHub with secure session handling  |
-| 🧾 Design History            | Stores and displays previously generated designs per user                   |
-| 🔍 Vector Search (Pinecone) | Search for similar designs based on style and semantics                     |
-| ☁️ Full-Stack Architecture  | Seamless integration between frontend, backend, AI services, and DB         |
+Vector Search Recommendations: Find design inspirations quickly with Pinecone + OpenAI embeddings.
 
----
+Full-Stack Architecture: Secure and scalable frontend (React, Tailwind CSS) + backend (Node.js, MongoDB).
 
-## 🧱 Tech Stack
+User Authentication: Handled via Clerk for safe and easy logins.
 
-### 🖥️ Frontend
-- **React** – Component-driven architecture for dynamic UI
-- **Tailwind CSS** – Utility-first styling for modern, responsive layout
-- **Clerk** – Plug-and-play auth for login, session, user identity
-- **Fetch API** – Lightweight, modern request handling
+Interactive UI: Intuitive uploads, style previews, and personalized suggestions.
 
-### 🧠 AI Integration
-- **OpenAI GPT-4 Vision** – Understands and analyzes uploaded room images
-- **DALL·E (Optional)** – Generates photorealistic design variations (if used)
-- **OpenAI Embeddings** – Converts design text into semantic vectors for search
+🛠 Tech Stack
+Layer	Technology
+Frontend	React, TypeScript, Tailwind CSS
+Backend	Node.js, Express.js
+AI/ML	OpenAI GPT-4 Vision, Pinecone Embeddings
+Database	MongoDB
+Auth	Clerk
+Deployment	Vercel / Node.js server
+📁 Folder Structure
+exceldes-interior-ai/
+├── public/                # Static assets
+├── src/
+│   ├── components/        # React components (Upload, Chatbot, UI elements)
+│   ├── services/          # Backend API services
+│   └── App.tsx            # Main React entry point
+├── scripts/               # Data processing & AI model scripts
+├── backend/               # Node.js backend routes & controllers
+├── database/              # MongoDB models & schemas
+├── package.json           # Node.js dependencies
+└── README.md              # Project documentation
 
-### 🧪 Backend
-- **Node.js + Express** – RESTful API to manage image processing, AI generation, DB interaction
-- **Multer** – Handles multipart image uploads from frontend
-- **Dotenv** – Secure .env variable handling for all API keys and secrets
+⚡ Getting Started
+Prerequisites
 
-### 🧰 Databases
-- **MongoDB (via Mongoose)** – Stores user data, design history, room metadata
-- **Pinecone** – High-performance vector database for storing and retrieving embedded design data
+Node.js & npm
 
----
+MongoDB instance (local or cloud)
 
-## 🖼️ Example Workflow
+OpenAI API key
 
-1. **User uploads** an image of their room and selects a desired design style.
-2. The **image is sent to the backend** where it's processed and analyzed by **GPT-4 Vision**.
-3. The AI generates a **textual description** of the new design based on the selected style.
-4. The description is:
-   - **Returned to the frontend**
-   - **Embedded** using OpenAI Embeddings
-   - **Stored** in Pinecone for similarity search
-   - **Logged** in MongoDB with metadata and user association
-5. The frontend displays the design output (text + image) and stores it under the user’s history.
+Installation
 
----
+Clone the repository
 
-exceldes/
-├── client/                  # React frontend
-│   ├── public/              # Static assets
-│   └── src/                 
-│       ├── components/      # Reusable UI components
-│       ├── pages/           # Main pages like Home, Dashboard
-│       ├── hooks/           # Custom React hooks
-│       └── utils/           # Frontend utility functions
-│
-├── server/                  # Node.js backend
-│   ├── routes/              # API route definitions
-│   ├── controllers/         # Business logic for routes
-│   ├── models/              # Mongoose schemas and models
-│   └── utils/               # Backend helper functions
-│
-├── .env                     # Environment variables (global or root-level)
-├── README.md                # Project documentation
+git clone https://github.com/pratyushcodes-source/ExcelDes-Interior-Design.git
+cd ExcelDes-Interior-Design
 
 
+Install dependencies
 
----
+npm install
 
-## 🔐 Environment Variables
 
-**Frontend (`client/.env`)**
-
-VITE_CLERK_PUBLISHABLE_KEY=your_clerk_frontend_key
-VITE_BACKEND_URL=http://localhost:5000
-Backend (server/.env)
-
+Setup environment variables in .env
 
 OPENAI_API_KEY=your_openai_key
-MONGODB_URI=your_mongodb_connection
-PINECONE_API_KEY=your_pinecone_key
-PINECONE_ENVIRONMENT=your_pinecone_env
-PINECONE_INDEX_NAME=your_index_name
-CLERK_SECRET_KEY=your_clerk_backend_key
----
-# 1. Clone the repository
-git clone https://github.com/your-username/exceldes.git
-cd exceldes
+MONGO_URI=your_mongodb_connection
 
-# 2. Setup and run the frontend
-cd client
-npm install
+
+Start the backend
+
+npm run server
+
+
+Start the frontend
+
 npm run dev
 
-# 3. Setup and run the backend
-cd ../server
-npm install
-npm run dev
+📸 Screenshots
+
+Landing Page:
 
 
-📈 Future Enhancements
-🖼️ Drag-and-drop room layout planner
+AI Design Preview:
 
-🧾 Export AI design suggestions as PDF
 
-🎯 Add multi-room support (living, kitchen, etc.)
+🏆 Achievements
 
-🛒 Integration with furniture e-commerce APIs
+Developed a full-stack AI-powered platform for real-time interior design.
 
-📊 Admin dashboard for design trend analytics
+Implemented vector-based recommendation engine improving user engagement and personalization.
 
-📄 License
-This project is licensed under the MIT License.
-Feel free to build on top of Exceldes or adapt it for your own creative tools.
+Integrated a responsive chatbot delivering contextual interior tips and sourcing recommendations.
+
+📜 License
+
+This project is for educational and demonstration purposes. Commercial use requires permission.
 
 🙌 Acknowledgements
-OpenAI
 
-Clerk
+OpenAI GPT-4 Vision for AI-based design generation
 
-Pinecone
+Pinecone for vector search and embeddings
 
-MongoDB Atlas
+Clerk for authentication integration
 
-Tailwind CSS
-
+Exceldes Interiors team for internship guidance and project support
 
 
